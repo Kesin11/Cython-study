@@ -8,6 +8,7 @@ $ python setup.py build_ext --inplace
 
 setup(
       cmdclass = {'build_ext': build_ext},
-      ext_modules = [Extension("mix", ["mix.pyx"])]
+      ext_modules = [Extension("mix", ["mix.pyx"]),
+                     Extension("inheritance",["inheritance.pyx"])]
 )
 
