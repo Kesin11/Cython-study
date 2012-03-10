@@ -31,7 +31,8 @@ def dim2sum_numpy(N):
     vec2 = numpy.zeros((N, N), dtype=numpy.float64)
     for i in xrange(N):
         for j in xrange(N):
-            vec2[i][j] = i+j
+            #vec2[i][j] = i+j
+            vec2[i,j] = i+j #fix
     vec2 += 1
     for i in xrange(N):
         vec2[i] /= vec2[i].sum()

@@ -69,7 +69,22 @@ def dim2sum_pynumpy(int N):
     vec2 = np.zeros((N, N), dtype=np.float64)
     for i in xrange(N):
         for j in xrange(N):
-            vec2[i][j] = i+j
+            #vec2[i][j] = i+j
+            vec2[i,j] = i+j     #fix
+    vec2 += 1
+    for i in xrange(N):
+        vec2[i] /= vec2[i].sum()
+    vec2_sum = vec2.sum()
+    print vec2_sum
+    return
+
+def dim2sum_pynumpy2(int N):
+    cdef int i, j
+    cdef double vec2_sum
+    cdef np.ndarray[np.float64_t, ndim=2] vec2 = np.zeros((N, N), dtype=np.float64)
+    for i in xrange(N):
+        for j in xrange(N):
+            vec2[i,j] = i+j
     vec2 += 1
     for i in xrange(N):
         vec2[i] /= vec2[i].sum()
